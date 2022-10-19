@@ -1,14 +1,12 @@
-import cmath
-
 def calculator_block(data):
     left_num, oper, right_num = data
-    if oper == '+':
+    elif oper == '+':
         return sum(left_num, right_num)
-    if oper == '-':
+    elif oper == '-':
         return sub(left_num, right_num)
-    if oper == '*':
+    elif oper == '*':
         return mult(left_num, right_num)
-    if (oper =='/') and (right_num != 0):
+    elif (oper =='/') and (right_num != 0):
         return div(left_num, right_num)
     else:
         return 'Ошибка деления на 0!'
