@@ -8,6 +8,9 @@ def Calc_block(left_value, oper, right_value):
         res = sub(left_value, right_value)
     elif oper == '*':
         res = mult(left_value, right_value)
+    elif (oper == '/') and (right_value != 0):
+            res = div(left_value, right_value)
+
     else:
         res = 'Ошибка деления на 0!'
     return res
