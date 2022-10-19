@@ -1,9 +1,7 @@
-from datetime import datetime as dt
-from time import time
+from datetime import datetime
 
-
-def result_logger(time, result):
-    time = dt.now().strftime('%H:%M')
-    with open('log.csv', 'a') as file:
-        file.write('{} результат :{}\n'.format(
-            time, result))
+def result_logger(result):
+    current_date = datetime.datetime.now()
+    current_date_string = current_date.strftime(' %m/%d/%y %H:%M')
+    with open('log.csv', 'a', encoding='UTF-8') as file:
+        file.write(f'{current_date_string}  результат: {result}\n')
