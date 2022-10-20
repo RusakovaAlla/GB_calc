@@ -8,11 +8,12 @@ def Calc_block(left_value, oper, right_value):
         res = sub(left_value, right_value)
     elif oper == '*':
         res = mult(left_value, right_value)
-    elif (oper == '/') and (right_value != 0):
-            res = div(left_value, right_value)
-
     else:
-        res = 'Ошибка деления на 0!'
+        try:
+            res = div(left_value, right_value)
+        except ZeroDivisionError:
+            res = "Ошибка деления на 0!"
+
     return res
 
 
@@ -27,9 +28,6 @@ def sub(left_value: complex, right_value: complex):
 def mult(left_value: complex, right_value: complex):
     return left_value * right_value
 
+
 def div(left_value: complex, right_value: complex):
     return left_value / right_value
-
-a = 0 + 0j
-b = 0 + 0j
-print(Calc_block(a, '/', b))

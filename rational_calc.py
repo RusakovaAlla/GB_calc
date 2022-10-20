@@ -1,5 +1,7 @@
 import re
 
+import re
+
 def my_eval(expresion):
     actions = {
         "^": lambda x, y: str(float(x) ** float(y)),
@@ -17,6 +19,13 @@ def my_eval(expresion):
 
     for symbol, action in actions.items():
         while (match := re.search(action_reg_exp.format(symbol), expresion)):
-            expresion: str = expresion.replace(match.group(0), action(*match.groups()))
-            print(expresion)
+            if symbol == "+":
+                expresion: str = expresion.replace(match.group(0), symbol + action(*match.groups()))
+                if expresion.find(symbol) == 0:
+                    expresion: str = expresion[1:]
+                else:
+                    pass
+            else:
+                expresion: str = expresion.replace(match.group(0), action(*match.groups()))
+
     return expresion
