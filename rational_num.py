@@ -5,10 +5,11 @@ def calculator_block(left_num, oper, right_num):
         return sub(left_num, right_num)
     elif oper == '*':
         return mult(left_num, right_num)
-    elif (oper == '/') and (right_num != 0):
-        return div(left_num, right_num)
     else:
-        return 'Ошибка деления на 0!'
+        try:
+            return div(left_num, right_num)
+        except ZeroDivisionError:
+            return "Ошибка деления на 0!"
 
 def sum(left_num, right_num):
     return left_num + right_num
